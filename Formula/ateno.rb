@@ -11,13 +11,15 @@ class Ateno < Formula
   depends_on "python@3.12"
 
 def install
-    # Use "python3.12" (the executable), NOT "python@3.12" (the formula)
+    # Create the virtual environment using the actual python3.12 command
     venv = virtualenv_create(libexec, "python3.12")
     
-    # Install the package and dependencies
+    # Install the current directory (.) and all dependencies (requests)
+    # This ensures no 'ModuleNotFoundError' occurs later
     venv.pip_install buildpath
     
-    # Create the global symlink
+    # This final step grabs the 'ateno' script from the venv 
+    # and links it to /opt/homebrew/bin/ateno
     venv.pip_install_and_link buildpath
   end
 
