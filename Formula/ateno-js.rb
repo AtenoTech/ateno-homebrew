@@ -3,7 +3,7 @@ class AtenoJs < Formula
   homepage "https://github.com/AtenoTech/ateno-js"
   # Bump to v0.1.3 to match the Python toolchain release
   url "https://github.com/AtenoTech/ateno-js/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5" # Robot will update this
+  sha256 "4d96edd8582e3280f45f1ff4042cec6cb12e43495ca4c235b01f61700d5fd2ce" # Robot will update this
   depends_on "node"
 
   def install
