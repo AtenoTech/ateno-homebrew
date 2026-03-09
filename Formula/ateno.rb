@@ -4,8 +4,8 @@ class Ateno < Formula
   desc "Ateno CLI"
   homepage "https://github.com/AtenoTech/ateno-py"
   # Bump version to v0.1.3 so the "Robot" triggers a fresh hash calculation
-  url "https://github.com/AtenoTech/ateno-py/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "7284bd80d2f2ca3838e1a7dbf4176733695ef11cc1b0dde05186adc091f17d7b" # Robot will update this
+  url "https://github.com/AtenoTech/ateno-py/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "d8def16d5f9cfe1a07b04fddbff10464b7bb4d49324108831f2c10b3925ba62b" # Robot will update this
   license "MIT"
 
   depends_on "python@3.12"
