@@ -8,13 +8,10 @@ class Ateno < Formula
   depends_on "python@3.12"
 
   def install
-    # 1. Create a pure Python virtual environment WITH pip included
     system "python3.12", "-m", "venv", libexec
-    
-    # 2. Use the virtual environment's pip to install the package and automatically fetch 'requests'
+
     system libexec/"bin/pip", "install", "."
-    
-    # 3. Create the global mapping to your zsh path
+
     bin.install_symlink libexec/"bin/ateno"
   end
 
