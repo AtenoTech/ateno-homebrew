@@ -1,6 +1,4 @@
 class Ateno < Formula
-  include Language::Python::Virtualenv
-
   desc "Ateno CLI"
   homepage "https://github.com/AtenoTech/ateno-py"
   url "https://github.com/AtenoTech/ateno-py/archive/refs/tags/v0.1.5.tar.gz"
@@ -9,20 +7,15 @@ class Ateno < Formula
 
   depends_on "python@3.12"
 
-  # Define the missing 'requests' dependency explicitly
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/c2/e7/815779ec36437936a2fc5de9a70fbf1e60f0dcd03399086d9a9abde890ba/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1ce022f20ea8d54fa6189919d77"
-  end
-
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    # 1. Create a pure Python virtual environment WITH pip included
+    system "python3.12", "-m", "venv", libexec
     
-    # Install the explicitly defined resources (requests) into the venv FIRST
-    venv.pip_install resources
+    # 2. Use the virtual environment's pip to install the package and automatically fetch 'requests'
+    system libexec/"bin/pip", "install", "."
     
-    # Then install your actual Ateno tool and link it
-    venv.pip_install_and_link buildpath
+    # 3. Create the global mapping to your zsh path
+    bin.install_symlink libexec/"bin/ateno"
   end
 
   test do
