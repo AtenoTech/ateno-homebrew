@@ -10,9 +10,16 @@ class Ateno < Formula
 
   depends_on "python@3.12"
 
-  def install
-    # This replaces manual pip calls and ensures 'ateno' is symlinked automatically
-    virtualenv_install_with_resources
+def install
+    # 1. Create the virtual environment in the libexec folder
+    venv = virtualenv_create(libexec, "python@3.12")
+    
+    # 2. Install the package AND its dependencies (like requests)
+    # This ensures everything in your pyproject.toml is fetched from PyPI
+    venv.pip_install buildpath
+    
+    # 3. Create the symlink so 'ateno' is globally accessible
+    venv.pip_install_and_link buildpath
   end
 
   test do
