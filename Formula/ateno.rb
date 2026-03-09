@@ -9,10 +9,20 @@ class Ateno < Formula
 
   depends_on "python@3.12"
 
+  # Define the missing 'requests' dependency explicitly
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/c2/e7/815779ec36437936a2fc5de9a70fbf1e60f0dcd03399086d9a9abde890ba/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1ce022f20ea8d54fa6189919d77"
+  end
+
   def install
-    # This creates the venv AND installs all dependencies from pyproject.toml
-    # AND links the 'ateno' command to /opt/homebrew/bin in one atomic operation.
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.12")
+    
+    # Install the explicitly defined resources (requests) into the venv FIRST
+    venv.pip_install resources
+    
+    # Then install your actual Ateno tool and link it
+    venv.pip_install_and_link buildpath
   end
 
   test do
