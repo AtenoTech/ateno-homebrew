@@ -8,7 +8,8 @@ class Ateno < Formula
   depends_on "python"
 
   def install
-    system "python3", "-m", "pip", "install", ".", "--prefix=#{prefix}"
+    system "python3", "-m", "pip", "install", ".", "--prefix=#{prefix}", "--no-deps"
+    bin.install_symlink Dir["#{prefix}/bin/*"]
   end
 
   test do
