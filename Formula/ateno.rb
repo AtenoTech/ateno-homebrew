@@ -1,8 +1,8 @@
 class Ateno < Formula
   desc "Ateno CLI"
   homepage "https://github.com/AtenoTech/ateno-py"
-  url "https://github.com/AtenoTech/ateno-py/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "d8def16d5f9cfe1a07b04fddbff10464b7bb4d49324108831f2c10b3925ba62b"
+  url "https://github.com/AtenoTech/ateno-py/archive/refs/tags/v0.1.6.tar.gz"
+  sha256 "e5b7c152c27b7218748ffab965d3436d58ad050647dcd342d4fd2bd7770063fd"
   license "MIT"
 
   depends_on "python@3.12"
