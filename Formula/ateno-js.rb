@@ -1,8 +1,8 @@
 class AtenoJs < Formula
   desc "Ateno JavaScript SDK"
   homepage "https://github.com/AtenoTech/ateno-js"
-  url "https://github.com/AtenoTech/ateno-js/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "446e35043a3e61cb368fe84acb37294b7969836fbf6406ad539324280a479b19"
+  url "https://github.com/AtenoTech/ateno-js/archive/refs/tags/v0.1.7.tar.gz"
+  sha256 "fc269fd2fecd9a536ab3a2e07db3f672366e3871d86da5b4c56ab0267b804b67"
   depends_on "node"
 
   def install
